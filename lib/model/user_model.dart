@@ -8,7 +8,6 @@ class UserModel {
 
   UserModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    print("=-=--=$id");
     name = json['name'];
     avatar = json['avatar'];
     if (json['posts'] != null) {

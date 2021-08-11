@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:test/Screens/add_post.dart';
-import 'package:test/Screens/post_list.dart';
+import 'package:test/Screens/add_post_page.dart';
+import 'package:test/Screens/post_list_view.dart';
 import 'package:test/bloc/user_bloc.dart';
 import 'package:test/model/all_posts_model.dart';
 import 'package:test/widgets/appBar.dart';
 import 'package:test/widgets/navigation.dart';
 
-class UsersPosts extends StatefulWidget {
+class AllPostsPage extends StatefulWidget {
   final String id;
-  UsersPosts({Key key, this.id}) : super(key: key);
+  AllPostsPage({Key key, this.id}) : super(key: key);
 
   @override
-  _UsersPostsState createState() => _UsersPostsState();
+  _AllPostsPageState createState() => _AllPostsPageState();
 }
 
-class _UsersPostsState extends State<UsersPosts> {
+class _AllPostsPageState extends State<AllPostsPage> {
   UserBloc _userBloc = UserBloc();
   @override
   void initState() {
-    _userBloc.getAllPost(widget.id);
+    _userBloc.getAllPostsList(widget.id);
     super.initState();
   }
 
@@ -37,7 +37,7 @@ class _UsersPostsState extends State<UsersPosts> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => nextPage(context, AddPostScreem(id: widget.id)),
+        onPressed: () => nextPage(context, AddPostPage(id: widget.id)),
         backgroundColor: Colors.black87.withOpacity(0.8),
         child: Icon(Icons.add),
         shape: RoundedRectangleBorder(

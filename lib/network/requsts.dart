@@ -3,6 +3,8 @@ import 'package:dio/dio.dart';
 class Network {
   final _baseURl = "https://609b59ee2b549f00176e34df.mockapi.io/api";
 
+  String allUserAPI = "/users";
+
   Dio dio = Dio();
 
   Future getReq(query) async {

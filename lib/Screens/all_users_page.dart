@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:test/Screens/users_list_view.dart';
-import 'package:test/model/user_model.dart';
+import 'package:test/Screens/user_list_view.dart';
 import 'package:test/bloc/user_bloc.dart';
+import 'package:test/model/user_model.dart';
 import 'package:test/widgets/appBar.dart';
 
 class AllUsersPage extends StatefulWidget {
@@ -16,13 +16,13 @@ class _AllUsersPageState extends State<AllUsersPage> {
 
   @override
   void initState() {
-    _userBloc.getAlluser();
+    _userBloc.getAllUsersList();
     super.initState();
   }
 
   @override
   void dispose() {
-    _userBloc.distroy();
+    _userBloc.destroy();
     super.dispose();
   }
 

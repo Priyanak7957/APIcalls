@@ -4,15 +4,15 @@ import 'package:test/widgets/appBar.dart';
 import 'package:test/widgets/button.dart';
 import 'package:test/widgets/textField.dart';
 
-class AddPostScreem extends StatefulWidget {
+class AddPostPage extends StatefulWidget {
   final String id;
-  AddPostScreem({Key key, this.id}) : super(key: key);
+  AddPostPage({Key key, this.id}) : super(key: key);
 
   @override
-  _AddPostScreemState createState() => _AddPostScreemState();
+  _AddPostPageState createState() => _AddPostPageState();
 }
 
-class _AddPostScreemState extends State<AddPostScreem> {
+class _AddPostPageState extends State<AddPostPage> {
   TextEditingController titleText = TextEditingController();
   TextEditingController bodyText = TextEditingController();
 

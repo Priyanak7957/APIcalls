@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:test/Screens/users_posts.dart';
+import 'package:test/Screens/all_posts_page.dart';
 import 'package:test/model/user_model.dart';
 import 'package:test/widgets/navigation.dart';
 
@@ -21,7 +21,7 @@ class UsersList extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.all(15.0),
           child: GestureDetector(
-            onTap: () => nextPage(context, UsersPosts(id: data[index].id)),
+            onTap: () => nextPage(context, AllPostsPage(id: data[index].id)),
             child: Row(
               children: [
                 ClipRRect(

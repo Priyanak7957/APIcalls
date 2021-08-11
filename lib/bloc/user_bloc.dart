@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:test/model/all_posts_model.dart';
 import 'package:test/model/user_model.dart';
 import 'package:test/network/requsts.dart';
-import 'package:test/network/api_list.dart';
 
 class UserBloc {
   Network _network = Network();
@@ -33,15 +32,17 @@ class UserBloc {
 
   Stream<List<AllPost>> get postListStream => _postListStreamController.stream;
 
-  void getAlluser() {
-    _network.getReq(allUserAPI).then((value) {
+  //---------------------End---------------------->
+
+  void getAllUsersList() {
+    _network.getReq(_network.allUserAPI).then((value) {
       value.map((i) => userModel.add(UserModel.fromJson(i))).toList();
       userListStreamSink.add(userModel);
     });
   }
 
-  void getAllPost(String id) {
-    _network.getReq("$allUserAPI/$id/posts").then((value) {
+  void getAllPostsList(String id) {
+    _network.getReq("${_network.allUserAPI}/$id/posts").then((value) {
       value.map((i) => allPostModel.add(AllPost.fromJson(i))).toList();
       postListStreamSink.add(allPostModel);
     });
@@ -51,11 +52,11 @@ class UserBloc {
     Map<String, dynamic> mapBody = Map<String, dynamic>();
     mapBody["title"] = title;
     mapBody["body"] = body;
-    String api = "$allUserAPI/$id/posts";
+    String api = "${_network.allUserAPI}/$id/posts";
     _network.postReq(mapBody, api).then((value) {});
   }
 
-  distroy() {
+  destroy() {
     _userListStreamController.close();
     _postListStreamController.close();
   }
