@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:test/Screens/add_post.dart';
+import 'package:test/Screens/post_list.dart';
 import 'package:test/bloc/user_bloc.dart';
 import 'package:test/model/all_posts_model.dart';
 import 'package:test/widgets/appBar.dart';
+import 'package:test/widgets/navigation.dart';
 
 class UsersPosts extends StatefulWidget {
   final String id;
@@ -28,46 +30,14 @@ class _UsersPostsState extends State<UsersPosts> {
       body: StreamBuilder(
         stream: _userBloc.postListStream,
         builder: (context, AsyncSnapshot<List<AllPost>> snapshot) {
-          return snapshot.data == null
+          var data = snapshot.data;
+          return data == null
               ? Container(width: 0.0, height: 0.0)
-              : ListView.builder(
-                  itemCount: snapshot.data.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Card(
-                      elevation: 2,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      margin: EdgeInsets.all(10),
-                      child: Padding(
-                        padding: EdgeInsets.all(15),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              snapshot.data[index].title,
-                              style: TextStyle(fontSize: 21),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(snapshot.data[index].body),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                );
+              : PostsList(data: data);
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => AddPostScreem(id: widget.id)),
-          );
-        },
+        onPressed: () => nextPage(context, AddPostScreem(id: widget.id)),
         backgroundColor: Colors.black87.withOpacity(0.8),
         child: Icon(Icons.add),
         shape: RoundedRectangleBorder(
