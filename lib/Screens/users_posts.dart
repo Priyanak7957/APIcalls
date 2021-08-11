@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test/Screens/add_post.dart';
 import 'package:test/bloc/user_bloc.dart';
 import 'package:test/model/all_posts_model.dart';
 import 'package:test/widgets/appBar.dart';
@@ -60,7 +61,13 @@ class _UsersPostsState extends State<UsersPosts> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => AddPostScreem(id: widget.id)),
+          );
+        },
         backgroundColor: Colors.black87.withOpacity(0.8),
         child: Icon(Icons.add),
         shape: RoundedRectangleBorder(

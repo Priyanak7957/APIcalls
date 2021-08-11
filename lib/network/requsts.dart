@@ -13,4 +13,16 @@ class Network {
       return e.response.data;
     }
   }
+
+  Future<Map<String, dynamic>> postReq(payload, String api) async {
+    try {
+      Response postResponse = await dio.post(
+        Uri.encodeFull("$_baseURl$api"),
+        data: payload,
+      );
+      return postResponse.data;
+    } catch (e) {
+      return e.response.data;
+    }
+  }
 }

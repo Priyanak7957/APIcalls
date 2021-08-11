@@ -47,6 +47,14 @@ class UserBloc {
     });
   }
 
+  void postArt(String title, String body, String id) {
+    Map<String, dynamic> mapBody = Map<String, dynamic>();
+    mapBody["title"] = title;
+    mapBody["body"] = body;
+    String api = "$allUserAPI/$id/posts";
+    _network.postReq(mapBody, api).then((value) {});
+  }
+
   distroy() {
     _userListStreamController.close();
     _postListStreamController.close();

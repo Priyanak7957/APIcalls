@@ -54,20 +54,20 @@ class _AllUsersPageState extends State<AllUsersPage> {
                         },
                         child: Row(
                           children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: CachedNetworkImage(
-                                imageUrl: snapshot.data[index].avatar,
-                                placeholder: (context, url) =>
-                                    CircularProgressIndicator(),
-                                errorWidget: (context, url, error) =>
-                                    Image.asset(
-                                  'assets/profile.png',
-                                  height: 30.0,
-                                  width: 30.0,
-                                ),
-                              ),
-                            ),
+                            // ClipRRect(
+                            //   borderRadius: BorderRadius.circular(8.0),
+                            //   child: CachedNetworkImage(
+                            //     imageUrl: snapshot.data[index].avatar,
+                            //     placeholder: (context, url) =>
+                            //         CircularProgressIndicator(),
+                            //     errorWidget: (context, url, error) =>
+                            //         Image.asset(
+                            //       'assets/profile.png',
+                            //       height: 30.0,
+                            //       width: 30.0,
+                            //     ),
+                            //   ),
+                            // ),
                             SizedBox(
                               width: 15,
                             ),
