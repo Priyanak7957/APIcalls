@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:test/model/user_model.dart';
-import 'package:test/network.dart';
+import 'package:test/network/requsts.dart';
 import 'package:test/network/api_list.dart';
 
 class UserBloc {

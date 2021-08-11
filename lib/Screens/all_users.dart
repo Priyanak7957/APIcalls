@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test/model/user_model.dart';
-import 'package:test/user_bloc.dart';
+import 'package:test/bloc/user_bloc.dart';
 
 class AllUsersPage extends StatefulWidget {
   AllUsersPage({Key key}) : super(key: key);
